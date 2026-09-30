@@ -51,7 +51,7 @@ if prompt := st.chat_input("Where would you like to go or what is your budget?")
     with st.chat_message("assistant"):
         with st.spinner("Planning your trip..."):
             # Attempt primary model, automatically switch to backup if 503 occurs
-            models_to_try = ["gemini-3.5-flash-lite", "gemini-3.5-flash", "gemini-2.5-flash-lite"]
+            models_to_try = ["gemini-2.5-flash", "gemini-2.5-pro"]
             response_text = None
             
             for m in models_to_try:
