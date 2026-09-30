@@ -2,11 +2,11 @@ import os
 import streamlit as st
 from google import genai
 from google.genai import types
-from google.genai.errors import ServerError
+from google.genai import errors
 
 # Page setup
 st.set_page_config(page_title="Travel Agent AI", page_icon="✈️", layout="centered")
-st.title("✈️ Travel Agent AI")
+st.title("✈️️ Travel Agent AI")
 st.caption("Star Group · CIST 205 Vacation Planner")
 
 # Read API key safely from Streamlit Secrets
@@ -14,8 +14,11 @@ API_KEY = st.secrets.get("GEMINI_API_KEY", "")
 
 # 1. Read system instructions from prompt.txt in the root folder
 prompt_path = os.path.join(os.path.dirname(__file__), "..", "prompt.txt")
-with open(prompt_path, "r", encoding="utf-8") as f:
-    system_instruction_text = f.read()
+try:
+    with open(prompt_path, "r", encoding="utf-8") as f:
+        system_instruction_text = f.read()
+except FileNotFoundError:
+    system_instruction_text = "You are Travel Agent AI, an expert travel planning assistant."
 
 # 2. Keep chat history in session state
 if "messages" not in st.session_state:
@@ -50,10 +53,11 @@ if prompt := st.chat_input("Where would you like to go or what is your budget?")
 
     with st.chat_message("assistant"):
         with st.spinner("Planning your trip..."):
-            # Attempt primary model, automatically switch to backup if 503 occurs
-            models_to_try = ["gemini-2.5-flash", "gemini-2.5-pro"]
+            # Try stable models in order
+            models_to_try = ["gemini-2.5-flash", "gemini-2.5-flash-lite"]
             response_text = None
-            
+            last_error = ""
+
             for m in models_to_try:
                 try:
                     res = client.models.generate_content(
@@ -63,11 +67,12 @@ if prompt := st.chat_input("Where would you like to go or what is your budget?")
                     )
                     response_text = res.text
                     break
-                except ServerError:
-                    continue  # Move to next backup model seamlessly
-            
+                except errors.APIError as e:
+                    last_error = str(e)
+                    continue  # Fallback to the next model
+
             if response_text:
                 st.markdown(response_text)
                 st.session_state.messages.append({"role": "assistant", "content": response_text})
             else:
-                st.error("Google's servers are currently under extreme load. Please try sending your message again in a few moments.")
+                st.error(f"Could not reach Gemini. Error details: {last_error}")
