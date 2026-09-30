@@ -6,7 +6,7 @@ from google.genai import errors
 
 # Page setup
 st.set_page_config(page_title="Travel Agent AI", page_icon="✈️", layout="centered")
-st.title("✈️️ Travel Agent AI")
+st.title("✈️ Travel Agent AI")
 st.caption("Star Group · CIST 205 Vacation Planner")
 
 # Read API key safely from Streamlit Secrets
@@ -53,8 +53,7 @@ if prompt := st.chat_input("Where would you like to go or what is your budget?")
 
     with st.chat_message("assistant"):
         with st.spinner("Planning your trip..."):
-            # Try stable models in order
-            models_to_try = ["gemini-2.5-flash", "gemini-2.5-flash-lite"]
+            models_to_try = ["gemini-3.5-flash", "gemini-3.5-flash-lite"]
             response_text = None
             last_error = ""
 
@@ -69,7 +68,7 @@ if prompt := st.chat_input("Where would you like to go or what is your budget?")
                     break
                 except errors.APIError as e:
                     last_error = str(e)
-                    continue  # Fallback to the next model
+                    continue
 
             if response_text:
                 st.markdown(response_text)
