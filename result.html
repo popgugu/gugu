@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>San Diego Sun & Coast Escape – Itinerary</title>
+  <style>
+    :root {
+      --bg: #0F172A;
+      --card-bg: #1E293B;
+      --accent: #38BDF8;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border: #334155;
+    }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 20px;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .btn-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      background-color: var(--accent);
+      color: var(--bg);
+      border: none;
+      padding: 10px 16px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      break-inside: avoid;
+    }
+    h1, h2, h3 {
+      color: var(--text);
+      margin-top: 0;
+    }
+    .badge {
+      background-color: var(--accent);
+      color: var(--bg);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    th {
+      color: var(--accent);
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    .budget-bar {
+      display: flex;
+      height: 24px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 15px 0;
+    }
+    .budget-seg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: #0F172A;
+    }
+    @media print {
+      body {
+        background-color: #FFFFFF;
+        color: #0F172A;
+      }
+      .btn-bar {
+        display: none;
+      }
+      .card {
+        background-color: #F8FAFC;
+        border: 1px solid #CBD5E1;
+        color: #0F172A;
+      }
+      th {
+        color: #0369A1;
+      }
+      a {
+        color: #0284C7;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Button Bar -->
+    <div class="btn-bar">
+      <button class="btn" onclick="window.print()">🖨️ Print</button>
+      <a class="btn" id="emailBtn" href="#">✉️ Email</a>
+      <a class="btn" id="gmailBtn" href="#" target="_blank" rel="noopener">📦 Gmail</a>
+    </div>
+
+    <!-- Header Card -->
+    <div class="card">
+      <h1>San Diego Sun & Coast Escape</h1>
+      <p>
+        <span class="badge">🏨 Moderate Tier</span> &nbsp;|&nbsp; 
+        <strong>Dates:</strong> May 10–14, 2026 &nbsp;|&nbsp; 
+        <strong>Party Size:</strong> 2 adults
+      </p>
+    </div>
+
+    <!-- Getting There Card -->
+    <div class="card">
+      <h2>Getting There</h2>
+      <p><strong>Flights:</strong> LAX ✈️ SAN (Direct round-trip for 2 adults)</p>
+      <ul>
+        <li><a href="https://www.google.com/travel/flights?q=Flights+from+LAX+to+SAN+on+2026-05-10+returning+2026-05-14+for+2+adults" target="_blank" rel="noopener">Google Flights – LAX → SAN</a></li>
+        <li><a href="https://www.kayak.com/flights/LAX-SAN/2026-05-10/2026-05-14/2adults" target="_blank" rel="noopener">Kayak – LAX → SAN</a></li>
+      </ul>
+    </div>
+
+    <!-- Budget Card -->
+    <div class="card">
+      <h2>Budget Ledger ($2,500 Total Budget)</h2>
+      <div class="budget-bar">
+        <div class="budget-seg" style="width: 16.6%; background-color: #38BDF8;" title="Transportation">Trans ($400)</div>
+        <div class="budget-seg" style="width: 50.0%; background-color: #34D399;" title="Lodging">Lodging ($1200)</div>
+        <div class="budget-seg" style="width: 22.9%; background-color: #FBBF24;" title="Meals">Meals ($550)</div>
+        <div class="budget-seg" style="width: 8.3%; background-color: #F87171;" title="Activities">Act ($200)</div>
+        <div class="budget-seg" style="width: 2.2%; background-color: #A78BFA;" title="Reserve">Res ($100)</div>
+      </div>
+      <p><strong>Summary:</strong> Transportation $400 | Lodging $1,200 | Meals $550 | Activities $200 | Extras $50 | <strong>Total: $2,400</strong> | <strong>Reserve: $100 (4.0%)</strong></p>
+    </div>
+
+    <!-- Day 1 -->
+    <div class="card">
+      <h3>Day 1: Balboa Park & Downtown Arrival</h3>
+      <table>
+        <tr><th>Time</th><th>Stop</th><th>Travel</th><th>Notes</th></tr>
+        <tr><td>10:00 AM</td><td>✈️ <a href="https://www.google.com/maps/search/?api=1&query=San+Diego+International+Airport" target="_blank" rel="noopener">San Diego Airport</a></td><td>15 min</td><td>Arrival at SAN</td></tr>
+        <tr><td>11:00 AM</td><td>🏨 <a href="https://www.google.com/maps/search/?api=1&query=The+Guild+Hotel+San+Diego" target="_blank" rel="noopener">The Guild Hotel</a></td><td>15 min</td><td>Check-in / Drop bags</td></tr>
+        <tr><td>12:00 PM</td><td>🍽️ <a href="https://www.google.com/maps/search/?api=1&query=The+Prado+at+Balboa+Park+San+Diego" target="_blank" rel="noopener">The Prado</a></td><td>0 min</td><td>Lunch ($$)</td></tr>
+        <tr><td>1:30 PM</td><td>🎟️ <a href="https://www.google.com/maps/search/?api=1&query=Balboa+Park+San+Diego" target="_blank" rel="noopener">Balboa Park</a></td><td>15 min</td><td>Active exploration</td></tr>
+        <tr><td>5:00 PM</td><td>🌧️ <a href="https://www.google.com/maps/search/?api=1&query=San+Diego+Museum+of+Art" target="_blank" rel="noopener">SD Museum of Art</a></td><td>10 min</td><td>Rain backup option</td></tr>
+        <tr><td>7:00 PM</td><td>🍽️ <a href="https://www.google.com/maps/search/?api=1&query=Bertrand+at+Mister+As+San+Diego" target="_blank" rel="noopener">Mister A's</a></td><td>-</td><td>Dinner ($$$)</td></tr>
+      </table>
+      <p style="margin-top:10px;"><small><a href="https://www.google.com/maps/dir/?api=1&origin=San+Diego+International+Airport&destination=Balboa+Park&travelmode=driving" target="_blank" rel="noopener">🗺️ Day 1 Route</a></small></p>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="card">
+      <h3>Day 2: La Jolla Coastline & Marine Life</h3>
+      <table>
+        <tr><th>Time</th><th>Stop</th><th>Travel</th><th>Notes</th></tr>
+        <tr><td>9:00 AM</td><td>🍽️ <a href="https://www.google.com/maps/search/?api=1&query=Brockton+Villa+La+Jolla" target="_blank" rel="noopener">Brockton Villa</a></td><td>10 min</td><td>Breakfast ($$)</td></tr>
+        <tr><td>10:00 AM</td><td>🎟️ <a href="https://www.google.com/maps/search/?api=1&query=La+Jolla+Cove+San+Diego" target="_blank" rel="noopener">La Jolla Cove</a></td><td>10 min</td><td>Coastal walk</td></tr>
+        <tr><td>1:00 PM</td><td>🍽️ <a href="https://www.google.com/maps/search/?api=1&query=Dukes+La+Jolla" target="_blank" rel="noopener">Duke's La Jolla</a></td><td>10 min</td><td>Lunch ($$)</td></tr>
+        <tr><td>2:30 PM</td><td>🎟️ <a href="https://www.google.com/maps/search/?api=1&query=La+Jolla+Shores+Park" target="_blank" rel="noopener">La Jolla Shores</a></td><td>10 min</td><td>Kayaking / Beach</td></tr>
+        <tr><td>5:00 PM</td><td>🌧️ <a href="https://www.google.com/maps/search/?api=1&query=Birch+Aquarium+San+Diego" target="_blank" rel="noopener">Birch Aquarium</a></td><td>-</td><td>Rain backup option</td></tr>
+      </table>
+      <p style="margin-top:10px;"><small><a href="https://www.google.com/maps/dir/?api=1&origin=Downtown+San+Diego&destination=La+Jolla+Cove&travelmode=driving" target="_blank" rel="noopener">🗺️ Day 2 Route</a></small></p>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="card">
+      <h3>Day 3: Coronado Island & Harbor</h3>
+      <table>
+        <tr><th>Time</th><th>Stop</th><th>Travel</th><th>Notes</th></tr>
+        <tr><td>9:30 AM</td><td>🚗 <a href="https://www.google.com/maps/search/?api=1&query=San+Diego+Coronado+Ferry" target="_blank" rel="noopener">Coronado Ferry</a></td><td>15 min</td><td>Scenic crossing</td></tr>
+        <tr><td>10:00 AM</td><td>🎟️ <a href="https://www.google.com/maps/search/?api=1&query=Coronado+Beach+San+Diego" target="_blank" rel="noopener">Coronado Beach</a></td><td>5 min</td><td>Stroll & relax</td></tr>
+        <tr><td>12:30 PM</td><td>🍽️ <a href="https://www.google.com/maps/search/?api=1&query=Coronado+Brewing+Co+San+Diego" target="_blank" rel="noopener">Coronado Brewing</a></td><td>15 min</td><td>Lunch ($$)</td></tr>
+        <tr><td>2:00 PM</td><td>🎟️ <a href="https://www.google.com/maps/search/?api=1&query=Hotel+del+Coronado+San+Diego" target="_blank" rel="noopener">Hotel del Coronado</a></td><td>15 min</td><td>Historic tour</td></tr>
+        <tr><td>4:30 PM</td><td>🌧️ <a href="https://www.google.com/maps/search/?api=1&query=USS+Midway+Museum+San+Diego" target="_blank" rel="noopener">USS Midway Museum</a></td><td>-</td><td>Rain backup</td></tr>
+      </table>
+      <p style="margin-top:10px;"><small><a href="https://www.google.com/maps/dir/?api=1&origin=Downtown+San+Diego&destination=Coronado+Beach&travelmode=driving" target="_blank" rel="noopener">🗺️ Day 3 Route</a></small></p>
+    </div>
+
+    <!-- Day 4 -->
+    <div class="card">
+      <h3>Day 4: North Park Culture & Dining</h3>
+      <table>
+        <tr><th>Time</th><th>Stop</th><th>Travel</th><th>Notes</th></tr>
+        <tr><td>10:00 AM</td><td>🎟️ <a href="https://www.google.com/maps/search/?api=1&query=North+Park+San+Diego" target="_blank" rel="noopener">North Park Shops</a></td><td>10 min</td><td>Boutique shopping</td></tr>
+        <tr><td>12:00 PM</td><td>🍽️ <a href="https://www.google.com/maps/search/?api=1&query=Tacos+Perla+San+Diego" target="_blank" rel="noopener">Tacos Perla</a></td><td>10 min</td><td>Lunch ($)</td></tr>
+        <tr><td>1:30 PM</td><td>🎟️ <a href="https://www.google.com/maps/search/?api=1&query=Balboa+Park+Trails+San+Diego" target="_blank" rel="noopener">Balboa Park Trails</a></td><td>15 min</td><td>Active hike</td></tr>
+        <tr><td>4:30 PM</td><td>🌧️ <a href="https://www.google.com/maps/search/?api=1&query=Fleet+Science+Center+San+Diego" target="_blank" rel="noopener">Fleet Science Center</a></td><td>-</td><td>Rain backup</td></tr>
+        <tr><td>7:00 PM</td><td>🍽️ <a href="https://www.google.com/maps/search/?api=1&query=Underbelly+North+Park+San+Diego" target="_blank" rel="noopener">Underbelly</a></td><td>-</td><td>Dinner ($$)</td></tr>
+      </table>
+      <p style="margin-top:10px;"><small><a href="https://www.google.com/maps/dir/?api=1&origin=Downtown+San+Diego&destination=North+Park+San+Diego&travelmode=driving" target="_blank" rel="noopener">🗺️ Day 4 Route</a></small></p>
+    </div>
+
+    <!-- Day 5 -->
+    <div class="card">
+      <h3>Day 5: Old Town History & Departure</h3>
+      <table>
+        <tr><th>Time</th><th>Stop</th><th>Travel</th><th>Notes</th></tr>
+        <tr><td>9:30 AM</td><td>🎟️ <a href="https://www.google.com/maps/search/?api=1&query=Old+Town+San+Diego+State+Historic+Park" target="_blank" rel="noopener">Old Town Park</a></td><td>0 min</td><td>Walking tour</td></tr>
+        <tr><td>12:00 PM</td><td>🍽️ <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Coyote+San+Diego" target="_blank" rel="noopener">Cafe Coyote</a></td><td>15 min</td><td>Farewell lunch ($$)</td></tr>
+        <tr><td>2:00 PM</td><td>🌧️ <a href="https://www.google.com/maps/search/?api=1&query=Whaley+House+Museum+San+Diego" target="_blank" rel="noopener">Whaley House</a></td><td>15 min</td><td>Rain backup</td></tr>
+        <tr><td>3:30 PM</td><td>🚗 <a href="https://www.google.com/maps/search/?api=1&query=San+Diego+International+Airport" target="_blank" rel="noopener">San Diego Airport</a></td><td>-</td><td>Head to airport</td></tr>
+      </table>
+      <p style="margin-top:10px;"><small><a href="https://www.google.com/maps/dir/?api=1&origin=Downtown+San+Diego&destination=Old+Town+San+Diego&travelmode=driving" target="_blank" rel="noopener">🗺️ Day 5 Route</a></small></p>
+    </div>
+
+    <!-- Packing Checklist -->
+    <div class="card">
+      <h2>Packing Checklist</h2>
+      <ul>
+        <li><label><input type="checkbox"> Comfortable walking shoes for Balboa Park & coastal trails</label></li>
+        <li><label><input type="checkbox"> Light jacket or layers for cool May coastal evenings</label></li>
+        <li><label><input type="checkbox"> Sunscreen, sunglasses, and hat</label></li>
+        <li><label><input type="checkbox"> Reusable water bottle</label></li>
+        <li><label><input type="checkbox"> Swimwear for beach visits or kayaking</label></li>
+      </ul>
+    </div>
+
+    <!-- Local Tips -->
+    <div class="card">
+      <h2>Local Tips & Before You Book</h2>
+      <ul>
+        <li><strong>Tipping:</strong> 15%–20% is standard for sit-down dining and rideshares.</li>
+        <li><strong>Transit:</strong> Use San Diego's MTS Trolley for Downtown/Old Town; rideshares for La Jolla and North Park.</li>
+        <li><strong>Before You Book:</strong> Double-check museum operating hours and book popular tickets (Birch Aquarium, USS Midway) in advance.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script>
+    const subject = "San Diego Sun & Coast Escape – May 10–14, 2026";
+    const body = "San Diego Sun & Coast Escape\nDates: May 10–14, 2026\nParty Size: 2 adults\nAirports: LAX → SAN\nLodging: Moderate Tier - The Guild Hotel\nEst. Total: $2,400 (Reserve: $100)\n\nDay 1: Balboa Park & Downtown Arrival\nDay 2: La Jolla Coastline & Marine Life\nDay 3: Coronado Island & Harbor\nDay 4: North Park Culture & Dining\nDay 5: Old Town History & Departure\n\nFlights: https://www.google.com/travel/flights?q=Flights+from+LAX+to+SAN+on+2026-05-10+returning+2026-05-14+for+2+adults\n\nPrices are estimates — please double-check before booking.";
+
+    document.getElementById('emailBtn').href = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    document.getElementById('gmailBtn').href = "https://mail.google.com/mail/?view=cm&fs=1&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  </script>
+</body>
+</html>
